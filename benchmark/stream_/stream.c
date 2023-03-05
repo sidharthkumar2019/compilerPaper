@@ -88,8 +88,11 @@ int main()
         scale_bw = (double)N * sizeof(double) / tscale / 1e9;
         add_bw = (double)N * sizeof(double) / tadd / 1e9;
         triad_bw = (double)N * sizeof(double) / ttriad / 1e9;
-        printf("Trial %d: Copy = %.2f GB/s, Scale = %.2f GB/s, Add = %.2f GB/s, Triad = %.2f GB/s\n",
-            i, copy_bw, scale_bw, add_bw, triad_bw);
+        // printf("Trial %d: Copy = %.2f GB/s, Scale = %.2f GB/s, Add = %.2f GB/s, Triad = %.2f GB/s\n",
+        //     i, copy_bw, scale_bw, add_bw, triad_bw);
+
+        printf("%.2f\n",
+            (copy_bw +scale_bw+ add_bw+ triad_bw) / 4.0);
     }
     free(a);
     free(b);
